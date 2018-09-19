@@ -1,45 +1,45 @@
 /*
 	LinkedList.h
-	°³¹ßÀÚ : 20172551ÀÓ¼ø±æ
-	¸¶Áö¸· ÆíÁıÀÏ : 20180917
-	ÅÛÇÃ¸´À» »ç¿ëÇÑ ¿¬°á¸®½ºÆ® ±¸Çö
+	ê°œë°œì : 20172551ì„ìˆœê¸¸ // developer
+	ë§ˆì§€ë§‰ í¸ì§‘ì¼ : 20180917 // last edited
+	í…œí”Œë¦¿ì„ ì‚¬ìš©í•œ ì—°ê²°ë¦¬ìŠ¤íŠ¸ êµ¬í˜„ // LinkedList that made with template
 */
 #pragma once
 template <typename T>
-class Element // ¿ø¼Ò Å¬·¡½º
+class Element // ì›ì†Œ í´ë˜ìŠ¤ // Node Class
 {
 private:
-	T item; // ¿ø¼Ò°¡ ´ãÀº °ª
-	Element<T> *linkage; // °¡¸®Å°´Â ÁÖ¼Ò
+	T item; // ì›ì†Œê°€ ë‹´ì€ ê°’ // Node's value
+	Element<T> *linkage; // ê°€ë¦¬í‚¤ëŠ” ì£¼ì†Œ // Node's pointer
 public:
-	Element(); // »ı¼ºÀÚ
-	Element(T item); // °ªÀ» ³Ö´Â »ı¼ºÀÚ
-	~Element(); // ¼Ò¸êÀÚ
-	Element<T>* connect(Element<T> *dest); // ¿¬°á
-	Element<T>* getLink(void); // ÁÖ¼Ò ¹İÈ¯
-	void Input(T item); // °ª Àç¼³Á¤
-	T value(void); // °ª ¹İÈ¯
+	Element(); // ìƒì„±ì // Constructor
+	Element(T item); // ê°’ì„ ë„£ëŠ” ìƒì„±ì // Constructor with value
+	~Element(); // ì†Œë©¸ì // Destructor
+	Element<T>* connect(Element<T> *dest); // ì—°ê²° // link with other node
+	Element<T>* getLink(void); // ì£¼ì†Œ ë°˜í™˜ // return linkage
+	void Input(T item); // ê°’ ì¬ì„¤ì • // change value of node
+	T value(void); // ê°’ ë°˜í™˜ // return value
 };
 
 template <typename T>
-class LinkedList // ¸®½ºÆ® Å¬·¡½º
+class LinkedList // ë¦¬ìŠ¤íŠ¸ í´ë˜ìŠ¤ // List class
 {
 private:
-	int count; // ¿ø¼ÒÀÇ °¹¼ö
-	Element<T> *First; // ½ÃÀÛ ¿ø¼Ò
-	Element<T> *Last; // ¸¶Áö¸· ¿ø¼Ò
+	int count; // ì›ì†Œì˜ ê°¯ìˆ˜ // counts of nodes
+	Element<T> *First; // ì‹œì‘ ì›ì†Œ // first node
+	Element<T> *Last; // ë§ˆì§€ë§‰ ì›ì†Œ // last node
 public:
-	LinkedList(); // »ı¼ºÀÚ
-	LinkedList(T item); // Ã¹¹øÂ° ¿ø¼Ò¸¦ »ı¼ºÇÏ´Â »ı¼ºÀÚ
-	~LinkedList(); // ¼Ò¸êÀÚ (¸ğµç ¿ø¼Ò »èÁ¦)
-	void Add(T item); // »õ·Î¿î ¿ø¼Ò Ãß°¡ ¹× ¿¬°á
-	void Add(T item, int index); // »õ·Î¿î ¿ø¼Ò¸¦ index¿¡ ³¢¿ö³ÖÀ½
-	void Delete(int index); // index¿¡ ÀÖ´Â ¿ø¼Ò »èÁ¦
-	Element<T>* last(void); // ¸¶Áö¸· ¿ø¼Ò ¹İÈ¯
-	Element<T>* first(void); // Ã¹¹øÂ° ¿ø¼Ò ¹İÈ¯
-	T operator[](int index); // ¹è¿­½Ä Á¢±ÙÀ¸·Î ¿ø¼Ò°ª Á¢±Ù°¡´É
-	T GetValue(int index); // index¿¡ ÀÖ´Â ¿ø¼ÒÀÇ °ª ¹İÈ¯
-	int length(void); // ¸®½ºÆ®ÀÇ ±æÀÌ ¹İÈ¯
+	LinkedList(); // ìƒì„±ì // constructor
+	LinkedList(T item); // ì²«ë²ˆì§¸ ì›ì†Œë¥¼ ìƒì„±í•˜ëŠ” ìƒì„±ì // constructor with value
+	~LinkedList(); // ì†Œë©¸ì (ëª¨ë“  ì›ì†Œ ì‚­ì œ) // Destructor (Deletes all nodes)
+	void Add(T item); // ìƒˆë¡œìš´ ì›ì†Œ ì¶”ê°€ ë° ì—°ê²° // Add new node
+	void Add(T item, int index); // ìƒˆë¡œìš´ ì›ì†Œë¥¼ indexì— ë¼ì›Œë„£ìŒ // insert node at 'index'
+	void Delete(int index); // indexì— ìˆëŠ” ì›ì†Œ ì‚­ì œ // delete node at 'index'
+	Element<T>* last(void); // ë§ˆì§€ë§‰ ì›ì†Œ ë°˜í™˜ // return last node
+	Element<T>* first(void); // ì²«ë²ˆì§¸ ì›ì†Œ ë°˜í™˜ // return first node
+	T operator[](int index); // ë°°ì—´ì‹ ì ‘ê·¼ìœ¼ë¡œ ì›ì†Œê°’ ì ‘ê·¼ê°€ëŠ¥ // You can access to value by using operator[]
+	T GetValue(int index); // indexì— ìˆëŠ” ì›ì†Œì˜ ê°’ ë°˜í™˜ // return value of node at 'index'
+	int length(void); // ë¦¬ìŠ¤íŠ¸ì˜ ê¸¸ì´ ë°˜í™˜ // return length of list
 };
 
 template<typename T>
