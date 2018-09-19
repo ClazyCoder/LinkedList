@@ -37,7 +37,7 @@ public:
 	void Delete(int index); // index에 있는 원소 삭제 // delete node at 'index'
 	Element<T>* last(void); // 마지막 원소 반환 // return last node
 	Element<T>* first(void); // 첫번째 원소 반환 // return first node
-	T operator[](int index); // 배열식 접근으로 원소값 접근가능 // You can access to value by using operator[]
+	T & operator[](int index); // 배열식 접근으로 원소값 접근가능 // You can access to value by using operator[]
 	T GetValue(int index); // index에 있는 원소의 값 반환 // return value of node at 'index'
 	int length(void); // 리스트의 길이 반환 // return length of list
 };
@@ -210,7 +210,7 @@ Element<T>* LinkedList<T>::first(void)
 }
 
 template<typename T>
-inline T LinkedList<T>::operator[](int index)
+inline T& LinkedList<T>::operator[](int index)
 {
 	if (index >= 0 && index < count)
 	{
