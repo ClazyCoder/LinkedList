@@ -14,7 +14,8 @@ int main()
 		std::cout << integers.GetValue(i) << " ";
 	}
 	std::cout << std::endl << std::endl;
-	std::cout << "index 1 : " <<integers[1] << std::endl << std::endl;
+	integers[1] = 8;
+	std::cout << "index 1 : " << integers[1] << std::endl << std::endl;
 
 	std::cout << "After delete index 1" << std::endl;
 	integers.Delete(1);
@@ -40,7 +41,7 @@ int main()
 		std::cout << integers.GetValue(i) << " ";
 	}
 	std::cout << std::endl << std::endl;
-	std::cout << "First element : " <<integers.first()->value() << std::endl << std::endl;
+	std::cout << "First element : " << integers.first()->value() << std::endl << std::endl;
 
 	std::cout << "Last element : " << integers.last()->value() << std::endl;
 	integers.Delete(integers.length() - 1);

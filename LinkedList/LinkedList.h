@@ -5,9 +5,14 @@
 	템플릿을 사용한 연결리스트 구현 // LinkedList that made with template
 */
 #pragma once
+
+template <typename T>
+class LinkedList;
+
 template <typename T>
 class Element // 원소 클래스 // Node Class
 {
+	friend LinkedList<T>;
 private:
 	T item; // 원소가 담은 값 // Node's value
 	Element<T> *linkage; // 가리키는 주소 // Node's pointer
@@ -222,9 +227,9 @@ inline T& LinkedList<T>::operator[](int index)
 				temp = temp->getLink();
 			}
 		}
-		return temp->value();
+		return temp->item;
 	}
-	return First->value();
+	return First->item;
 }
 
 template<typename T>
